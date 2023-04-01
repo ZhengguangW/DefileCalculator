@@ -1,31 +1,37 @@
 import copy
 from Minion import Minion
 from Board import Board
-minion1=Minion(3,4,"蜘蛛坦克","enemy")
-minion2=Minion(5,3,"黑心商贩","enemy")
+minion1=Minion(3,4,"蜘蛛坦克","friendly")
+minion2=Minion(1,5,"可强化机器人","enemy")
 minion3=Minion(3,5,"伊利斯逐星","friendly")
+minion4=Minion(1,4,"银背族长","enemy")
 
 board=Board()
 board.add_minion(minion1)
 board.add_minion(minion2)
 board.add_minion(minion3)
+board.add_minion(minion4)
 
 def activate_defile(board):
     if board.check_termination():
+        print("One Possible Solution is:")
         board.printpath()
         return
 
     for friendly in board.friendly:
-        for enemy in board.enemies:
-            path=friendly.battle(enemy)
-            friendly_copy=[copy.deepcopy(x)for x in board.friendly]
-            enemy_copy=[copy.deepcopy(x)for x in board.enemies]
-            friendly.reverse(enemy)
-            temp_board=Board(initial=False,friendly=friendly_copy,enemies=enemy_copy)
-            temp_board.check_dead()
-            temp_board.printout=board.printout.copy()
-            temp_board.append_possible_printout(path)
-            activate_defile((temp_board))
+        if friendly.left_attacktime():
+            for enemy in board.enemies:
+                path=friendly.battle(enemy)
+                friendly_copy=[copy.deepcopy(x)for x in board.friendly]
+                enemy_copy=[copy.deepcopy(x)for x in board.enemies]
+                friendly.reverse(enemy)
+                temp_board=Board(initial=False,friendly=friendly_copy,enemies=enemy_copy)
+                temp_board.check_dead()
+                temp_board.printout=board.printout.copy()
+                temp_board.append_possible_printout(path)
+                activate_defile((temp_board))
+        else:
+            continue
     return
         
 
