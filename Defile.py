@@ -2,7 +2,7 @@ import copy
 from Minion import Minion
 from Board import Board
 from Owner_enum import owner
-minion1=Minion(1,2,"12",owner.enemy)
+minion1=Minion(1,2,"12",owner.friendly)
 minion2=Minion(1,3,"13",owner.friendly)
 minion3=Minion(5,1,"51",owner.friendly)
 minion4=Minion(1,1,"11",owner.enemy,True)
