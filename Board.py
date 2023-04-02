@@ -1,5 +1,5 @@
 from operator import attrgetter
-from owner_enum import owner
+from Owner_enum import owner
 class Board:
     def __init__(self,initial=True,friendly=None,enemies=None,printout=None):
         if initial:

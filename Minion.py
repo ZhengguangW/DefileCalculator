@@ -1,4 +1,4 @@
-from owner_enum import owner
+from Owner_enum import owner
 class Minion:
     def __init__(self,attack,health,name,owner,divine_shield=False):
         self.attack=attack
