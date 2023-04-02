@@ -17,14 +17,18 @@ class Minion:
         elif self.has_divine_shield():
             self.ds_status=True
             self.divine_shield=False
+            anothercard.ds_status=False
             anothercard.health-=self.attack
         elif anothercard.has_divine_shield():
             anothercard.ds_status=True
             anothercard.divine_shield=False
+            self.ds_status=False
             self.health-=anothercard.attack
         else:
             self.health-=anothercard.attack
             anothercard.health-=self.attack
+            anothercard.ds_status=False
+            self.ds_status=False
         self.attack_time-=1
         return self.name+ "attack: "+anothercard.name
         

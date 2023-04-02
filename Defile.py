@@ -1,12 +1,12 @@
 import copy
 from Minion import Minion
 from Board import Board
-minion1=Minion(3,4,"34","friendly",True)
-minion2=Minion(1,2,"12","friendly")
-minion3=Minion(1,1,"11","friendly")
-minion4=Minion(6,4,"64","enemy")
-minion5=Minion(3,3,"33","enemy",True)
-minion6=Minion(3,2,"32","enemy")
+minion1=Minion(1,2,"12","friendly")
+minion2=Minion(1,3,"13","friendly")
+minion3=Minion(5,1,"51","friendly")
+minion4=Minion(1,1,"11","enemy",True)
+minion5=Minion(2,2,"22","enemy",True)
+minion6=Minion(3,4,"34","enemy",True)
 
 board=Board()
 board.add_minion(minion1)
@@ -19,7 +19,7 @@ def activate_defile(board):
     if board.check_termination():
         print("One Possible Solution is:")
         board.printpath()
-        return True
+        return 
 
     for friendly in board.friendly:
         if friendly.left_attacktime():
@@ -32,8 +32,7 @@ def activate_defile(board):
                 temp_board.check_dead()
                 temp_board.printout=board.printout.copy()
                 temp_board.append_possible_printout(path)
-                if (activate_defile((temp_board))):
-                    return
+                activate_defile(temp_board)
         else:
             continue
     return
