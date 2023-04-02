@@ -19,10 +19,11 @@ class Board:
             self.friendly.append(minion)
 
     def check_dead(self):
-        for minion in self.friendly:
+        for minion in list(self.friendly):
             if minion.health<=0:
                 self.friendly.remove(minion)
-        for minion in self.enemies:
+
+        for minion in list(self.enemies):
             if minion.health<=0:
                 self.enemies.remove(minion)
 
