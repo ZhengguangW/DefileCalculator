@@ -1,12 +1,13 @@
 import copy
 from Minion import Minion
 from Board import Board
-minion1=Minion(1,2,"12","friendly")
-minion2=Minion(1,3,"13","friendly")
-minion3=Minion(5,1,"51","friendly")
-minion4=Minion(1,1,"11","enemy",True)
-minion5=Minion(2,2,"22","enemy",True)
-minion6=Minion(3,4,"34","enemy",True)
+from owner_enum import owner
+minion1=Minion(1,2,"12",owner.friendly)
+minion2=Minion(1,3,"13",owner.friendly)
+minion3=Minion(5,1,"51",owner.friendly)
+minion4=Minion(1,1,"11",owner.enemy,True)
+minion5=Minion(2,2,"22",owner.enemy,True)
+minion6=Minion(3,4,"34",owner.enemy,True)
 
 board=Board()
 board.add_minion(minion1)

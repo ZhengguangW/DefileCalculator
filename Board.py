@@ -1,4 +1,5 @@
 from operator import attrgetter
+from owner_enum import owner
 class Board:
     def __init__(self,initial=True,friendly=None,enemies=None,printout=None):
         if initial:
@@ -12,9 +13,9 @@ class Board:
 
 
     def add_minion(self,minion):
-        if minion.owner=="enemy":
+        if minion.owner==owner.enemy:
             self.enemies.append(minion)
-        if minion.owner=="friendly":
+        if minion.owner==owner.friendly:
             self.friendly.append(minion)
 
     def check_dead(self):
