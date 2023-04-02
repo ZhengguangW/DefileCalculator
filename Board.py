@@ -39,7 +39,7 @@ class Board:
 
         for i in range (1,all_index+1):
             try:
-                if all_health[i-1]!=i:
+                if all_health[i-1]>i:
                     return False
             except:
                 return False
