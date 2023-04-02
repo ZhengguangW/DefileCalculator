@@ -26,24 +26,39 @@ class Board:
                 self.enemies.remove(minion)
 
     def get_enemies_maxhealth(self):
-        enemy_max_health=max(self.enemies,key=attrgetter("health"))
-        return enemy_max_health.health
+        enemy_max_health_list=[]
+        for enemy_minion in self.enemies:
+            if enemy_minion.has_divine_shield():
+                enemy_max_health_list.append(enemy_minion.health+1)
+            else:
+                enemy_max_health_list.append(enemy_minion.health)
+        return max(enemy_max_health_list)
 
     def check_termination(self):
         all=self.friendly+self.enemies
-        all.sort(key=lambda x:x.health)
         all_index=self.get_enemies_maxhealth()
         all_health=[]
         for all_minion in all:
-            all_health.append(all_minion.health)
-
-        for i in range (1,all_index+1):
-            try:
-                if all_health[i-1]>i:
-                    return False
-            except:
-                return False
-        return True
+            if all_minion.has_divine_shield():
+                all_health.append(all_minion.health+1)
+            else:
+                all_health.append(all_minion.health)
+        all_health.sort()
+        desired_sequence=range(1,all_index+1)
+        if set(desired_sequence).issubset(set(all_health)):
+            print(set(desired_sequence))
+            print(all_health)
+            return True
+            
+        else:
+            return False
+        # for i in range (1,all_index+1):
+        #     try:
+        #         if all_health[i-1]>i:
+        #             return False
+        #     except:
+        #         return False
+        # return True
 
     def append_possible_printout(self,path):
         self.printout.append(path)
