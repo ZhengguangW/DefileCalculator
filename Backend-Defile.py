@@ -47,7 +47,10 @@ def process_data():
     if board.check_termination()==False:
         process.activate_defile(copy.deepcopy(board))
         if process.solution==None:
-            response = app.make_response("扭了扭了")
+            response = jsonify({
+                "solution": "扭了扭了",
+                "scenes": None
+            })
             response.headers.add('Access-Control-Allow-Origin', '*')
             return response
         else: 
@@ -59,7 +62,11 @@ def process_data():
             })
             return response
     else:
-            return ("good for defile")
+        response = jsonify({
+                "solution": "Good for Defile",
+                "scenes": None
+            })
+        return response
 
 
 if __name__ == '__main__':
