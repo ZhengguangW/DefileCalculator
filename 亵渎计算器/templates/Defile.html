@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" href="static/Defile.css">
+    <script src="static/Defile.js"></script>
+  </head>
+
+  <body>
+    <p class="title"> Defile Calculator</p>
+    <div class="board-output-intro">
+      <div class="board-output"> 
+        <div class="board"> 
+          <img id="Arrow" src="static/p.png">
+          <div id = "E1" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t1 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t2 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('E1')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('E1')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('E1')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "E2" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t3 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t4 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('E2')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('E2')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('E2')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "E3" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t5 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t6 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('E3')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('E3')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('E3')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "E4" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t7 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t8 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('E4')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('E4')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('E4')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "E5" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t9 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t10 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('E5')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('E5')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('E5')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "E6" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t11 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t12 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('E6')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('E6')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('E6')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "E7" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t13 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t14 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('E7')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('E7')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('E7')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "F1" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t15 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t16 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('F1')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('F1')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('F1')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "F2" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t17 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t18 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('F2')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('F2')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('F2')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "F3" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t19 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t20 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('F3')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('F3')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('F3')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "F4" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t21 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t22 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('F4')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('F4')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('F4')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "F5" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t23 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t24 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('F5')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('F5')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('F5')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "F6" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t25 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t26 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('F6')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('F6')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('F6')" id="checkbox-reborn"> R
+            </div>
+          </div>
+          <div id = "F7" class="Minion-border">
+            <div class="Minion">
+              <div class="circle">
+                <input type="text" id=t27 class="attack" onkeydown="handleKeyDown(event)"> 
+                <input type="text" id=t28 class="health" onkeydown="handleKeyDown(event)">
+              </div>
+            </div>
+            <div class="Minion-Status">
+              <input type="checkbox" onchange="check('F7')" id="checkbox-taunt"> T
+              <input type="checkbox" onchange="check('F7')" id="checkbox-ds"> DS
+              <input type="checkbox" onchange="check('F7')" id="checkbox-reborn"> R
+            </div>
+          </div>
+        </div>
+        <div class="Calculate-border">
+          <button class="Calculate" onClick="SendData()"> Defile!</button>
+          <button class="Next Scene" onClick="ForwardScene()"> Next </button>
+          <button class="Previous Scene" onClick="PreviousScene()"> Previous </button>
+        </div>
+         <div class="output">
+          <p id="defile-result"></p> </div>
+      </div>
+      <div class="intro"> 
+        <p class="Introduction"> This Calculator gives one possible solution to reach a board situation that can be cleared with a Warlock Defile Spell. <br>
+          It takes the current board status, and outputs the attack steps to reach a Defile-Clearable situation. 
+        </p>
+        <p class="Introduction"> This Calculator takes Taunt, Divine Shield, and Reborn into account. <br> 
+          The Left Board takes user input, and uses E1 to E7 to represent up to 7 Enemies minion and F1 to F7 to represent up to 7 Families.
+        </p>
+      </div>
+    </div>
+
+  </body>
+   
+</html>
