@@ -15,7 +15,6 @@ def index():
 
 @app.route('/process_data', methods=['GET',"POST"])
 def process_data():
-    print("y")
     # if request.method == 'OPTIONS':
     #     print("triggered")
     #     response = make_response()
