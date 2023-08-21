@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response,render_template,jsonify
 from flask_cors import CORS
 import copy
+import os
 from BackDefile.Minion import Minion
 from BackDefile.Board import Board
 from BackDefile.Owner_enum import owner
@@ -70,4 +71,4 @@ def process_data():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
