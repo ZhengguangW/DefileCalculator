@@ -57,6 +57,7 @@ def process_data():
             process.get_scenes(board)
             print(process.scenes)
             response=jsonify({
+                "solution_list": process.solution,
                 "solution": "".join(process.solution),
                 "scenes": process.scenes
             })

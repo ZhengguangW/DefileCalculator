@@ -1,5 +1,7 @@
 let CurrentIndex=0
 let scenes=null
+let global_solution=null
+let solution_list=null
   
   function check(id){
     let taunt=document.querySelector('#'+id+' #checkbox-taunt')
@@ -130,12 +132,14 @@ let scenes=null
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                
                 const responseData = JSON.parse(xhr.responseText);
                 const solution = responseData.solution;
                 scenes = responseData.scenes;
                 console.log(responseData.scenes);
                 result.textContent=solution;
+                global_solution=solution;
+                solution_list=responseData.solution_list
+                console.log(solution_list);
             }
         };
         xhr.send(JSON.stringify(minions));
@@ -144,14 +148,14 @@ let scenes=null
   function ForwardScene(){
     if (CurrentIndex<scenes.length-1){
       CurrentIndex++;
-      updateBoardWithScene(scenes[CurrentIndex])
+      updateBoardWithScene(scenes[CurrentIndex],CurrentIndex)
     }
   }
 
   function PreviousScene(){
     if (CurrentIndex>0){
       CurrentIndex--;
-      updateBoardWithScene(scenes[CurrentIndex])
+      updateBoardWithScene(scenes[CurrentIndex],CurrentIndex)
     }
   }
 
@@ -162,7 +166,6 @@ let scenes=null
         const scene = scenes[sceneIndex];
         updateBoardWithScene(scene);
         sceneIndex++;
-  
         // Call the next scene update after the delay
         setTimeout(displayScene, delay,sceneIndex);
       }
@@ -170,16 +173,20 @@ let scenes=null
     setTimeout(displayScene, delay);
   }
 
-  function updateBoardWithScene(scene) {
-    const elementE1 = document.querySelector('#E1 .Minion');
-    const elementF1 = document.querySelector('#F1 .Minion');
-    positionLineImage(elementE1, elementF1);
-
+  function updateBoardWithScene(scene,CurrentIndex) {
+    if (CurrentIndex>=1){
+      const friendly_string=solution_list[CurrentIndex-1].split(" ")[0];
+      const enemy_string=solution_list[CurrentIndex-1].split(" ")[2];
+      const friendly = document.querySelector('#'+friendly_string);
+      const enemy = document.querySelector('#'+enemy_string);
+      friendly.querySelector('.circle').style.borderColor = "red";
+      enemy.querySelector('.circle').style.borderColor = "red";
+      console.log(friendly);}
+    // positionLineImage(elementE1, elementF1);
     // Iterate through the minions in the scene
     for (const minion of scene) {
       // Get the minion element by its ID
       const minionElement = document.getElementById(minion.name);
-
       // Update the attack and health input values
       const attackInput = minionElement.querySelector('.attack');
       const healthInput = minionElement.querySelector('.health');
@@ -193,6 +200,47 @@ let scenes=null
       tauntCheckbox.checked = minion.taunt;
       dsCheckbox.checked = minion.ds;
       rebornCheckbox.checked = minion.reborn;
+      check(minion.name);
+
+    //   if (tauntCheckbox.checked && dsCheckbox.checked && rebornCheckbox.checked){
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //     surrounding.classList.add("taunt-ds-reborn");
+    //   }
+    //   else if (tauntCheckbox.checked && dsCheckbox.checked){
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //     surrounding.classList.add("taunt-ds");
+    //   }
+    //   else if (tauntCheckbox.checked && rebornCheckbox.checked){
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //     surrounding.classList.add("taunt-reborn");
+    //   }
+    //   else if (dsCheckbox.checked && rebornCheckbox.checked){
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //     surrounding.classList.add("ds-reborn");
+    //   }
+    //   else if (tauntCheckbox.checked){
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //     surrounding.classList.add("taunt");
+    //   }
+    //   else if (dsCheckbox.checked){
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //     surrounding.classList.add("ds");
+    //   }
+    //   else if (rebornCheckbox.checked){
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //     surrounding.classList.add("reborn");
+    //   }
+    //   else {
+    //     surrounding.classList="";
+    //     surrounding.classList.add("Minion");
+    //   }
     }
   }
 

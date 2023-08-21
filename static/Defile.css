@@ -29,6 +29,7 @@
     height: 600px;
     border-color: black;
     border-style: solid;
+    position: relative;
 }
 .output{
     background-color: aqua;
@@ -66,9 +67,38 @@
     width: 115px;
     height: 155px;
     border-radius: 50%;
-    border-color: red;
+    border-color: black;
     border-style: solid;
     position: relative;
+  }
+
+  .middle-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-90%);
+  }
+  
+  #previous {
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    background-image: url('left.png');
+    background-size: cover;
+    background-position: center;
+    border-style: none;
+  }
+  #next{
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    background-image: url('next.png');
+    background-size: cover;
+    background-position: center;
+    border-style: none;
   }
 
 
