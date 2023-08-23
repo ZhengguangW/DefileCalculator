@@ -191,11 +191,15 @@ let flag_defile=false
 
   function updateBoardWithScene(scene,CurrentIndex) {
     document.querySelector('#previous').style.display='inline-block';
+    console.log(scenes.length);
+    console.log(CurrentIndex);
     if (CurrentIndex===scenes.length-1){
       document.querySelector('#next').style.display='none';
+      console.log("k");
     }
     if (CurrentIndex===0){
       document.querySelector('#previous').style.display='none';
+      document.querySelector('#next').style.display='inline-block';
     }
     // positionLineImage(elementE1, elementF1);
     // Iterate through the minions in the scene
