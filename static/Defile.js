@@ -2,6 +2,19 @@ let CurrentIndex=0
 let scenes=null
 let global_solution=null
 let solution_list=null
+let flag_defile=false
+
+  function refresh_or_calculate(){
+    if (flag) {
+      function1();
+      button.textContent = "Defile!";
+      flag = false;
+    } else {
+      SendData();
+      button.textContent = "New Board";
+      flag = true;
+    }
+  }  
   
   function check(id){
     let taunt=document.querySelector('#'+id+' #checkbox-taunt')
