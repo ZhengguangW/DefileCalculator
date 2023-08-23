@@ -5,14 +5,15 @@ let solution_list=null
 let flag_defile=false
 
   function refresh_or_calculate(){
-    if (flag) {
-      function1();
+    button=document.querySelector('.Calculate');
+    if (flag_defile) {
+      location.reload();
       button.textContent = "Defile!";
-      flag = false;
+      flag_defile = false;
     } else {
       SendData();
       button.textContent = "New Board";
-      flag = true;
+      flag_defile = true;
     }
   }  
   
@@ -187,19 +188,12 @@ let flag_defile=false
   }
 
   function updateBoardWithScene(scene,CurrentIndex) {
-    if (CurrentIndex>=1){
-      const friendly_string=solution_list[CurrentIndex-1].split(" ")[0];
-      const enemy_string=solution_list[CurrentIndex-1].split(" ")[2];
-      const friendly = document.querySelector('#'+friendly_string);
-      const enemy = document.querySelector('#'+enemy_string);
-      friendly.querySelector('.circle').style.borderColor = "red";
-      enemy.querySelector('.circle').style.borderColor = "red";
-      console.log(friendly);}
     // positionLineImage(elementE1, elementF1);
     // Iterate through the minions in the scene
     for (const minion of scene) {
       // Get the minion element by its ID
       const minionElement = document.getElementById(minion.name);
+      minionElement.querySelector('.circle').style.borderColor = "black";
       // Update the attack and health input values
       const attackInput = minionElement.querySelector('.attack');
       const healthInput = minionElement.querySelector('.health');
@@ -214,6 +208,14 @@ let flag_defile=false
       dsCheckbox.checked = minion.ds;
       rebornCheckbox.checked = minion.reborn;
       check(minion.name);
+      if (CurrentIndex>=1){
+        const friendly_string=solution_list[CurrentIndex-1].split(" ")[0];
+        const enemy_string=solution_list[CurrentIndex-1].split(" ")[2];
+        const friendly = document.querySelector('#'+friendly_string);
+        const enemy = document.querySelector('#'+enemy_string);
+        friendly.querySelector('.circle').style.borderColor = "red";
+        enemy.querySelector('.circle').style.borderColor = "red";
+        console.log(friendly);}
 
     //   if (tauntCheckbox.checked && dsCheckbox.checked && rebornCheckbox.checked){
     //     surrounding.classList="";
