@@ -150,6 +150,7 @@ let flag_defile=false
                 const solution = responseData.solution;
                 scenes = responseData.scenes;
                 console.log(responseData.scenes);
+                document.querySelector('#next').style.display='inline-block';
                 result.textContent=solution;
                 global_solution=solution;
                 solution_list=responseData.solution_list
@@ -171,6 +172,7 @@ let flag_defile=false
       CurrentIndex--;
       updateBoardWithScene(scenes[CurrentIndex],CurrentIndex)
     }
+
   }
 
 
@@ -188,6 +190,13 @@ let flag_defile=false
   }
 
   function updateBoardWithScene(scene,CurrentIndex) {
+    document.querySelector('#previous').style.display='inline-block';
+    if (CurrentIndex===scenes.length-1){
+      document.querySelector('#next').style.display='none';
+    }
+    if (CurrentIndex===0){
+      document.querySelector('#previous').style.display='none';
+    }
     // positionLineImage(elementE1, elementF1);
     // Iterate through the minions in the scene
     for (const minion of scene) {
