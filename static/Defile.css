@@ -78,6 +78,16 @@
     transform: translateY(-90%);
     display: none;
   }
+  .title-container {
+    height:300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+  }
+  .title-image{
+    height:100%;
+  }
   
   #previous {
     width: 90px;
