@@ -12,14 +12,15 @@
 .board-output-intro {
     display: flex;
     border-style: solid;
+    border-color: rgb(116, 93, 76);
+    border-width: 6px;
 }
 
 .board-output {
     flex: 60%;
     border-width: 2px;
-    border-color: brown;
     border-style: solid;
-    height: 800px;
+    border-color: rgb(163, 126, 98);
 }
 
 .board {
@@ -28,25 +29,57 @@
     gap: 10px;
     border-width: 2px;
     height: 600px;
-    border-color: black;
-    border-style: solid;
+    border: none;
     position: relative;
 }
 
-.output {
-    background-color: aqua;
-    border-width: 2px;
-    border-color: brown;
+.Calculate-border {
+    text-align: right;
+}
+
+.Calculate {
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(251, 240, 212);
+    border-color: #623a1acc;
     border-style: solid;
-    height: 300px;
+    border-width: 4px;
+    color: #623a1acc;
+    cursor: pointer;
+    transition: background-color 1s,
+        color 1s;
+}
+
+.Calculate:hover {
+    background-color: #623a1acc;
+    color: rgb(251, 240, 212);
+}
+
+.output {
+    margin-top: 50px;
+    background-color: rgba(247, 229, 196, 0.754);
+    border-width: 2px;
+    border-color: rgb(163, 126, 98);
+    border-style: solid;
+    height: 200px;
 }
 
 .intro {
     flex: 40%;
     border-width: 2px;
-    border-color: blue;
+    border-color: rgb(163, 126, 98);
     border-style: solid;
-    background-color: #432f1fcc;
+    background-color: #5e432dcc;
+}
+
+.Introduction {
+    line-height: 1.5;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    font-size: 18px;
 }
 
 
@@ -73,12 +106,13 @@
     border-radius: 50%;
     border-color: black;
     border-style: solid;
+    border-width: 1.5px;
     position: relative;
 }
 
 .middle-button {
     position: absolute;
-    top: 50%;
+    top: 55%;
     transform: translateY(-90%);
     display: none;
 }
@@ -102,7 +136,7 @@
     position: absolute;
     top: 50%;
     left: 10px;
-    background-image: url('left.png');
+    background-image: url('static/left.png');
     background-size: cover;
     background-position: center;
     border-style: none;
@@ -114,16 +148,11 @@
     position: absolute;
     top: 50%;
     right: 10px;
-    background-image: url('next.png');
+    background-image: url('static/next.png');
     background-size: cover;
     background-position: center;
     border-style: none;
 }
-
-
-
-
-
 
 
 .taunt-ds-reborn {
@@ -187,38 +216,6 @@
     top: 110px;
     left: 80px;
     z-index: 2;
-}
-
-
-.Calculate {
-    width: 200px;
-    height: 100px;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: white;
-    border-color: rgb(154, 27, 27);
-    border-style: solid;
-    border-width: 4px;
-    color: rgb(154, 27, 27);
-    cursor: pointer;
-    transition: background-color 1s,
-        color 1s;
-}
-
-.Calculate:hover {
-    background-color: rgb(154, 27, 27);
-    color: white
-}
-
-.Calculate-border {
-    text-align: right;
-}
-
-.Introduction {
-    line-height: 2;
-    margin-left: 3px;
-    color: white;
-    font-size: 18px;
 }
 
 #Arrow {

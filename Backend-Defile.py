@@ -58,7 +58,7 @@ def process_data():
             response = jsonify(
                 {
                     "solution_list": process.solution,
-                    "solution": "".join(process.solution),
+                    "solution": "  ------->  ".join(process.solution),
                     "scenes": process.scenes,
                 }
             )
