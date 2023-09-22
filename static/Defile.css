@@ -136,7 +136,7 @@
     position: absolute;
     top: 50%;
     left: 10px;
-    background-image: url('static/left.png');
+    background-image: url('left.png');
     background-size: cover;
     background-position: center;
     border-style: none;
@@ -148,7 +148,7 @@
     position: absolute;
     top: 50%;
     right: 10px;
-    background-image: url('static/next.png');
+    background-image: url('next.png');
     background-size: cover;
     background-position: center;
     border-style: none;

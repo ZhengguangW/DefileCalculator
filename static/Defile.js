@@ -197,6 +197,9 @@ function updateBoardWithScene(scene, CurrentIndex) {
     document.querySelector('#next').style.display = 'none';
     console.log("k");
   }
+  else{
+    document.querySelector('#next').style.display = 'inline-block';
+  }
   if (CurrentIndex === 0) {
     document.querySelector('#previous').style.display = 'none';
     document.querySelector('#next').style.display = 'inline-block';

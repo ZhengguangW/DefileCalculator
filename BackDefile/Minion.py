@@ -12,6 +12,22 @@ class Minion:
         self.ds_status=False
         self.health_before_reborn=None
         
+        
+        
+        
+    def __eq__(self,other):
+        return (self.attack == other.attack and
+                self.health == other.health and
+                self.name == other.name and
+                self.owner == other.owner and
+                self.taunt == other.taunt and
+                self.divine_shield == other.divine_shield and
+                self.reborn == other.reborn and
+                self.ds_status == other.ds_status and
+                self.health_before_reborn == other.health_before_reborn)
+
+        
+        
     def __str__(self):
         return (self.name+str(self.health)+str(self.divine_shield)+str(self.reborn))
 

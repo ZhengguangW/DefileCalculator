@@ -10,6 +10,13 @@ class Board:
             self.friendly=friendly
             self.enemies=enemies
             self.printout=[]
+            
+    def __eq__(self,other):
+        result=False
+        if self.friendly==other.friendly:
+            if self.enemies==other.enemies:
+                result=True
+        return result
 
 
     def add_minion(self,minion):

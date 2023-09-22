@@ -41,6 +41,7 @@ class Calculate():
     def __init__(self):
         self.solution=None
         self.scenes=[]
+        self.seen=[]
         
     
     def get_scenes(self,board):
@@ -65,25 +66,37 @@ class Calculate():
     def activate_defile(self,board):
         if self.solution!=None:
             return 
-      
+        
         if board.check_termination():
+            self.seen.append(board)
             print("One Possible Solution is:")
             board.printpath()
             self.solution=board.printout
             return 
 
         for friendly in board.friendly:
+            if self.solution!=None:
+                return 
             if friendly.left_attacktime():
+                if self.solution!=None:
+                    return 
                 for enemy in board.enemies:
                     path=friendly.battle(enemy)
                     friendly_copy=[copy.deepcopy(x)for x in board.friendly]
                     enemy_copy=[copy.deepcopy(x)for x in board.enemies]
                     friendly.reverse(enemy)
                     temp_board=Board(initial=False,friendly=friendly_copy,enemies=enemy_copy)
-                    temp_board.check_dead()
-                    temp_board.printout=board.printout.copy()
-                    temp_board.append_possible_printout(path)
-                    self.activate_defile(temp_board) 
+                    temp_board.check_dead()          
+                    if temp_board in self.seen:
+                        for i in self.seen:
+                            if temp_board==i:
+                                temp_board.printout=i.printout.copy()
+                                self.solution=board.printout
+                                return 
+                    else:
+                        temp_board.printout=board.printout.copy()
+                        temp_board.append_possible_printout(path)
+                        self.activate_defile(temp_board) 
                     
         return 
             
