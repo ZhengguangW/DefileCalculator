@@ -6,15 +6,16 @@ let flag_defile = false
 
 function refresh_or_calculate() {
   button = document.querySelector('.Calculate');
-  if (flag_defile) {
-    location.reload();
-    button.textContent = "Defile!";
-    flag_defile = false;
-  } else {
-    SendData();
-    button.textContent = "New Board";
-    flag_defile = true;
-  }
+  // if (flag_defile) {
+  //   location.reload();
+  //   button.textContent = "Defile!";
+  //   flag_defile = false;
+  // } else {
+  //   SendData();
+  //   button.textContent = "New Board";
+  //   flag_defile = true;
+  // }
+  SendData()
 }
 
 function check(id) {

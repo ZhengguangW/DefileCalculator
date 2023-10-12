@@ -68,7 +68,6 @@ class Calculate():
             return 
         
         if board.check_termination():
-            self.seen.append(board)
             print("One Possible Solution is:")
             board.printpath()
             self.solution=board.printout
@@ -87,17 +86,9 @@ class Calculate():
                     friendly.reverse(enemy)
                     temp_board=Board(initial=False,friendly=friendly_copy,enemies=enemy_copy)
                     temp_board.check_dead()          
-                    if temp_board in self.seen:
-                        for i in self.seen:
-                            if temp_board==i:
-                                temp_board.printout=i.printout.copy()
-                                self.solution=board.printout
-                                return 
-                    else:
-                        temp_board.printout=board.printout.copy()
-                        temp_board.append_possible_printout(path)
-                        self.activate_defile(temp_board) 
-                    
+                    temp_board.printout=board.printout.copy()
+                    temp_board.append_possible_printout(path)
+                    self.activate_defile(temp_board) 
         return 
             
 
