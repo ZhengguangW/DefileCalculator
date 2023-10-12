@@ -123,6 +123,7 @@
     justify-content: center;
     align-items: center;
     border-style: none;
+    position: relative;
 }
 
 .title-image {
@@ -227,9 +228,9 @@
 
 .overlay-button-team {
     position: absolute;
-    top: 20%;
+    top: 44%;
     /* Adjust as needed to vertically center the button */
-    left: 20%;
+    left: 24.5%;
     /* Adjust as needed to horizontally center the button */
     transform: translate(-50%, -50%);
     /* Center the button both vertically and horizontally */
@@ -247,7 +248,7 @@
 
 .overlay-button-support-us {
     position: absolute;
-    top: 20%;
+    top: 44%;
     /* Adjust as needed to vertically center the button */
     left: 77%;
     /* Adjust as needed to horizontally center the button */
