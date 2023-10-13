@@ -74,6 +74,10 @@ class Board:
             else:
                 all_health.append(all_minion.health)
         all_health.sort()
+        for i in all_minions:
+            print(str(i))
+        print("check")
+        print(all_health)
         desired_sequence=range(1,all_index+1)
         if set(desired_sequence).issubset(set(all_health)):
             print(set(desired_sequence))

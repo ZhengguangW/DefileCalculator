@@ -62,11 +62,11 @@ class Minion:
             anothercard.ds_status=False
             self.ds_status=False
             if self.health<=0 and self.has_reborn():
-                self.health_before_reborn=self.health
+                self.health_before_reborn=(self.health+anothercard.attack)
                 self.health=1
                 self.reborn=False 
             if anothercard.health<=0 and anothercard.has_reborn():
-                anothercard.health_before_reborn=anothercard.health
+                anothercard.health_before_reborn=(anothercard.health+self.attack)
                 anothercard.health=1
                 anothercard.reborn=False          
         self.attack_time-=1
@@ -99,24 +99,26 @@ class Minion:
                 self.health_before_reborn=None
             else:
                 self.health+=anothercard.attack
-        else:
+        elif self.health_before_reborn!=None and anothercard.health_before_reborn!=None:
+            self.health=self.health_before_reborn
+            self.reborn=True
+            anothercard.health=anothercard.health_before_reborn
+            anothercard.reborn=True
+            self.health_before_reborn=None
+            anothercard.health_before_reborn=None
+        elif self.health_before_reborn!=None:
+            self.health=self.health_before_reborn
+            self.reborn=True
+            self.health_before_reborn=None
+            anothercard.health+=self.attack
+        elif anothercard.health_before_reborn!=None:
+            anothercard.health=anothercard.health_before_reborn
+            anothercard.reborn=True
+            anothercard.health_before_reborn=None
+            self.health+=anothercard.attack
+        else: 
             self.health+=anothercard.attack
             anothercard.health+=self.attack
-            if self.health_before_reborn!=None and anothercard.health_before_reborn!=None:
-                self.health=self.health_before_reborn
-                self.reborn=True
-                anothercard.health=anothercard.health_before_reborn
-                anothercard.reborn=True
-                self.health_before_reborn=None
-                anothercard.health_before_reborn=None
-            elif self.health_before_reborn!=None:
-                self.health=self.health_before_reborn
-                self.reborn=True
-                self.health_before_reborn=None
-            elif anothercard.health_before_reborn!=None:
-                anothercard.health=anothercard.health_before_reborn
-                anothercard.reborn=True
-                anothercard.health_before_reborn=None     
         self.attack_time+=1
 
 
