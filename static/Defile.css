@@ -242,6 +242,7 @@
     /* Adjust to your desired height */
     /* Remove button border if needed */
     cursor: pointer;
+    border:none;
     /* Add cursor style for interaction */
 }
 
@@ -259,8 +260,8 @@
     /* Adjust to your desired width */
     height: 120px;
     /* Adjust to your desired height */
-    border-color: black;
     /* Remove button border if needed */
     cursor: pointer;
+    border:none;
     /* Add cursor style for interaction */
 }
