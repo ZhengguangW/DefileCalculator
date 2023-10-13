@@ -230,7 +230,7 @@
     position: absolute;
     top: 44%;
     /* Adjust as needed to vertically center the button */
-    left: 24.5%;
+    left: 19.5%;
     /* Adjust as needed to horizontally center the button */
     transform: translate(-50%, -50%);
     /* Center the button both vertically and horizontally */
@@ -240,7 +240,6 @@
     /* Adjust to your desired width */
     height: 120px;
     /* Adjust to your desired height */
-    border-color: black;
     /* Remove button border if needed */
     cursor: pointer;
     /* Add cursor style for interaction */
