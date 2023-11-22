@@ -15,6 +15,16 @@ CORS(app)
 def index():
     return render_template("Defile.html")
 
+from flask import redirect
+@app.before_request
+def redirect_heroku_domain():
+    host = request.headers.get('Host', '')
+
+    # Check if the request is using the Heroku domain
+    if 'https://defilecalculator-5d48601430ba.herokuapp.com/' in host:
+        # Redirect to the custom domain with a 301 status code
+        return redirect('https://www.defilecalculator.com' + request.full_path, code=301)
+
 
 @app.route("/process_data", methods=["GET", "POST"])
 def process_data():
