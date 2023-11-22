@@ -66,6 +66,11 @@ def process_data():
     else:
         response = jsonify({"solution": "Good for Defile", "scenes": None})
         return response
+from flask import redirect
+@app.route('https://defilecalculator-5d48601430ba.herokuapp.com/')
+def index():
+    return redirect("https://www.defilecalculator.com/", code=301)
+
 
 
 if __name__ == "__main__":
